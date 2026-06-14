@@ -1,0 +1,165 @@
+<!--
+  ~ /**
+  ~  Copyright (c) 2026 Wilson K Sam
+  ~
+  ~  SPDX-License-Identifier: MIT
+  ~
+  ~  Chapter : Chapter 6 - Class as the Basis of all Computations
+  ~  Purpose:
+  ~  Notes:
+  ~    -
+  ~  */
+  ~
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Interview Questions Handbook</title>
+    <style>
+        body{font-family:Arial,sans-serif;margin:20px;line-height:1.6}
+        h1,h2{text-align:center}
+        .toc{border:1px solid #ccc;border-radius:8px;padding:15px;margin-bottom:25px}
+        .card{border:1px solid #ccc;border-radius:8px;padding:15px;margin-bottom:20px;page-break-inside:avoid}
+        .meta{color:#666;font-size:12px}
+        .badge{border:1px solid #777;border-radius:12px;padding:2px 8px}
+        .question{font-size:18px;font-weight:bold;margin-top:8px}
+        .answer,.explanation,.code-section{margin-top:12px}
+        pre{background:#f8f8f8;border:1px solid #ddd;border-left:4px solid #666;padding:12px;white-space:pre-wrap;overflow-x:auto}
+        @media print{button{display:none}.toc{page-break-after:always}}
+    </style>
+</head>
+<body>
+<h1 id="top">Spring Vs Spring Boot Questions Handbook</h1>
+<button onclick="window.print()">Print / Save as PDF</button>
+
+<div class="toc">
+    <h2>Question Index</h2>
+    <ol id="questionIndex"></ol>
+</div>
+
+<div id="content"></div>
+
+<script>
+    const data = [
+        {
+            "id": 1,
+            "difficulty": "easy",
+            "question": "What is Spring Boot?",
+            "answer": "Spring Boot is a framework that simplifies the development of Spring applications by providing a set of conventions and tools for building production-ready applications quickly and easily.",
+            "explanation": "Spring Boot is an extension of the Spring framework that provides a streamlined approach to building Spring applications. It eliminates the need for complex configuration and setup by providing default configurations and auto-configuration features. With Spring Boot, developers can quickly create standalone, production-grade applications that can be easily deployed. It also includes features such as embedded servers, which allow applications to run without the need for an external application server, and a wide range of starter dependencies that simplify the inclusion of common libraries and frameworks. Overall, Spring Boot is designed to make it easier for developers to create and deploy Spring applications with minimal effort and configuration.",
+            "codeExample": "import org.springframework.boot.SpringApplication;\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\n\n@SpringBootApplication\npublic class MySpringBootApplication {\n    public static void main(String[] args) {\n        SpringApplication.run(MySpringBootApplication.class, args);\n    }\n}"
+        },
+        {
+            "id": 2,
+            "difficulty": "medium",
+            "question": "What are the key differences between Spring and Spring Boot?",
+            "answer": "The key differences between Spring and Spring Boot include: 1) Spring is a comprehensive framework for building Java applications, while Spring Boot is an extension of Spring that focuses on simplifying the development process. 2) Spring requires manual configuration and setup, while Spring Boot provides auto-configuration and default settings. 3) Spring applications typically require an external application server, while Spring Boot applications can run with embedded servers. 4) Spring provides a wide range of features and modules, while Spring Boot focuses on providing a streamlined set of features for building production-ready applications.",
+            "explanation": "Spring is a powerful and flexible framework that provides a wide range of features for building Java applications. It requires developers to manually configure and set up their applications, which can be time-consuming and complex. On the other hand, Spring Boot is designed to simplify the development process by providing auto-configuration and default settings. This allows developers to quickly create standalone, production-grade applications without the need for extensive configuration. Additionally, while traditional Spring applications typically require an external application server to run, Spring Boot applications can run with embedded servers such as Tomcat or Jetty, making it easier to deploy and manage applications. Overall, the key differences between Spring and Spring Boot lie in their approach to configuration, deployment, and the level of abstraction they provide for building Java applications.",
+            "codeExample": "import org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Configuration;\n\n@Configuration\npublic class MySpringConfig {\n    @Bean\n    public MyService myService() {\n        return new MyServiceImpl();\n    }\n}"
+        },
+        {
+            "id": 3,
+            "difficulty": "hard",
+            "question": "How does Spring Boot handle dependency management?",
+            "answer": "Spring Boot uses a feature called 'starter dependencies' to handle dependency management. Starter dependencies are a set of convenient dependency descriptors that you can include in your application. They provide a curated set of dependencies for specific functionality, such as web development, data access, or security. When you include a starter dependency in your project, Spring Boot automatically includes the necessary dependencies and configurations for that functionality, simplifying the process of managing dependencies and ensuring compatibility between different libraries.",
+            "explanation": "Spring Boot's starter dependencies are designed to simplify the process of managing dependencies in a Spring application. Instead of manually specifying each dependency and its version, developers can include a single starter dependency that encompasses all the necessary dependencies for a particular functionality. For example, if you want to build a web application, you can include the 'spring-boot-starter-web' dependency, which will automatically include dependencies such as Spring MVC, Tomcat, and Jackson for JSON processing. This approach not only reduces the amount of configuration required but also ensures that the included dependencies are compatible with each other, as they are curated and maintained by the Spring Boot team. Additionally, Spring Boot provides a dependency management plugin that allows you to easily manage and override dependency versions if needed, giving you flexibility while still benefiting from the convenience of starter dependencies.",
+            "codeExample": "dependencies {\n    implementation 'org.springframework.boot:spring-boot-starter-web'\n    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'\n    implementation 'org.springframework.boot:spring-boot-starter-security'\n}"
+        },
+        {
+            "id": 4,
+            "difficulty": "medium",
+            "question": "What are the advantages of using Spring Boot over traditional Spring?",
+            "answer": "The advantages of using Spring Boot over traditional Spring include: 1) Faster development: Spring Boot provides auto-configuration and starter dependencies, which significantly reduces the time and effort required to set up and configure a Spring application. 2) Simplified deployment: Spring Boot applications can run with embedded servers, eliminating the need for an external application server and simplifying the deployment process. 3) Production-ready features: Spring Boot includes features such as health checks, metrics, and monitoring out of the box, making it easier to build production-ready applications. 4) Improved developer experience: Spring Boot's conventions and tools enhance the developer experience by providing a streamlined approach to building applications, allowing developers to focus on writing business logic rather than dealing with configuration and setup.",
+            "explanation": "Spring Boot offers several advantages over traditional Spring that make it a popular choice for building Java applications. One of the main advantages is faster development. With auto-configuration and starter dependencies, developers can quickly set up and configure their applications without having to manually specify each dependency or configuration setting. This allows for rapid prototyping and development, enabling developers to focus on writing business logic rather than dealing with boilerplate code. Additionally, Spring Boot simplifies deployment by allowing applications to run with embedded servers, eliminating the need for an external application server and streamlining the deployment process. Furthermore, Spring Boot includes production-ready features such as health checks, metrics, and monitoring out of the box, making it easier to build robust and scalable applications that are ready for production environments. Overall, Spring Boot enhances the developer experience by providing a streamlined approach to building applications while still offering powerful features and flexibility.",
+            "codeExample": "import org.springframework.boot.SpringApplication;\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\n\n@SpringBootApplication\npublic class MySpringBootApplication {\n    public static void main(String[] args) {\n        SpringApplication.run(MySpringBootApplication.class, args);\n    }\n}"
+        },
+        {
+            "id": 5,
+            "difficulty": "hard",
+            "question": "How does Spring Boot support microservices architecture?",
+            "answer": "Spring Boot supports microservices architecture by providing features such as service discovery, load balancing, and distributed tracing. It integrates with popular tools and frameworks like Netflix Eureka for service discovery, Ribbon for load balancing, and Sleuth for distributed tracing. Additionally, Spring Boot's modular design allows developers to create small, independent services that can be easily deployed and scaled. With its support for RESTful APIs and integration with cloud platforms, Spring Boot is well-suited for building microservices-based applications.",
+            "explanation": "Spring Boot is designed to facilitate the development of microservices-based applications by providing a range of features that support the microservices architecture. One of the key features is service discovery, which allows services to register themselves and discover other services in the system. This is typically achieved using tools like Netflix Eureka, which provides a registry for services to register and discover each other. Additionally, Spring Boot supports load balancing through integration with Ribbon, which allows requests to be distributed across multiple instances of a service for improved performance and reliability. For distributed tracing, Spring Boot integrates with Sleuth, which provides tools for tracking requests as they flow through different services in a microservices architecture. Furthermore, Spring Boot's modular design allows developers to create small, independent services that can be easily deployed and scaled as needed. With its support for RESTful APIs and seamless integration with cloud platforms such as AWS and Azure, Spring Boot provides a robust foundation for building microservices-based applications that are scalable, resilient, and easy to maintain.",
+            "codeExample": "import org.springframework.cloud.client.discovery.EnableDiscoveryClient;\nimport org.springframework.boot.SpringApplication;\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\n\n@EnableDiscoveryClient\n@SpringBootApplication\npublic class MyMicroserviceApplication {\n    public static void main(String[] args) {\n        SpringApplication.run(MyMicroserviceApplication.class, args);\n    }\n}"
+        },
+        {
+            "id": 6,
+            "difficulty": "medium",
+            "question": "What is the role of Spring Boot Actuator?",
+            "answer": "Spring Boot Actuator is a module that provides production-ready features for monitoring and managing Spring Boot applications. It exposes various endpoints that allow developers to access information about the application's health, metrics, and configuration. With Actuator, developers can easily monitor the application's performance, track its health status, and gain insights into its behavior in production environments.",
+            "explanation": "Spring Boot Actuator is an essential component of the Spring Boot ecosystem that offers a range of features for monitoring and managing applications. It provides a set of built-in endpoints that expose information about the application's health, metrics, and configuration. For example, the /actuator/health endpoint allows developers to check the health status of the application, while the /actuator/metrics endpoint provides insights into various performance metrics such as memory usage, CPU usage, and request counts. Additionally, Actuator allows developers to customize and extend these endpoints to include application-specific information or functionality. By using Spring Boot Actuator, developers can gain valuable insights into their applications' behavior in production environments, enabling them to identify and address issues proactively and ensure optimal performance.",
+            "codeExample": "dependencies {\n    implementation 'org.springframework.boot:spring-boot-starter-actuator'\n}"
+        },
+        {
+            "id": 7,
+            "difficulty": "easy",
+            "question": "How does Spring Boot simplify database access?",
+            "answer": "Spring Boot simplifies database access by providing auto-configuration for popular database technologies and integrating with Spring Data JPA. It allows developers to easily configure data sources, define repositories, and perform CRUD operations without the need for extensive boilerplate code. With Spring Boot, developers can quickly set up and interact with databases, making it easier to build data-driven applications.",
+            "explanation": "Spring Boot simplifies database access by providing auto-configuration for popular database technologies such as MySQL, PostgreSQL, and H2. This means that developers can easily configure their data sources by simply including the appropriate dependencies in their project. Additionally, Spring Boot integrates seamlessly with Spring Data JPA, which provides a powerful and convenient way to interact with databases. With Spring Data JPA, developers can define repositories that abstract away the underlying database interactions, allowing them to perform CRUD operations without writing complex SQL queries or boilerplate code. This makes it easier to build data-driven applications and allows developers to focus on the business logic rather than the intricacies of database access. Overall, Spring Boot's support for database access streamlines the development process and enhances productivity when working with databases in Spring applications.",
+            "codeExample": "import org.springframework.data.jpa.repository.JpaRepository;\n\npublic interface UserRepository extends JpaRepository<User, Long> {\n    // Custom query methods can be defined here\n}"
+        },
+        {
+            "id": 8,
+            "difficulty": "medium",
+            "question": "What is the purpose of Spring Boot DevTools?",
+            "answer": "Spring Boot DevTools is a module that provides additional development-time features to enhance the developer experience when working with Spring Boot applications. It includes features such as automatic restarts, live reload, and enhanced logging, which help developers to quickly see the effects of their code changes without having to manually restart the application.",
+            "explanation": "Spring Boot DevTools is designed to improve the development experience by providing features that allow developers to see the results of their code changes in real-time. One of the key features of DevTools is automatic restarts, which means that when a developer makes changes to the code, the application will automatically restart to reflect those changes. This eliminates the need for developers to manually stop and start the application, saving time and improving productivity. Additionally, DevTools includes live reload functionality, which allows developers to see changes in the browser without having to refresh the page. This is particularly useful when working on web applications, as it provides immediate feedback on the changes being made. Furthermore, DevTools enhances logging by providing more detailed and informative logs during development, making it easier to debug and troubleshoot issues. Overall, Spring Boot DevTools is a valuable tool for developers working with Spring Boot applications, as it streamlines the development process and allows for faster iteration and feedback.",
+            "codeExample": "dependencies {\n    developmentOnly 'org.springframework.boot:spring-boot-devtools'\n}"
+        },
+        {
+            "id": 9,
+            "difficulty": "hard",
+            "question": "How does Spring Boot handle security?",
+            "answer": "Spring Boot handles security through the Spring Security framework, which provides a comprehensive set of features for securing applications. It allows developers to easily configure authentication and authorization mechanisms, such as form-based login, OAuth2, and JWT. Spring Boot also provides auto-configuration for security, making it easier to set up and customize security settings for applications.",
+            "explanation": "Spring Boot integrates with the Spring Security framework to provide robust security features for applications. With Spring Security, developers can easily configure authentication and authorization mechanisms to protect their applications from unauthorized access. For example, developers can set up form-based login to allow users to authenticate using a username and password, or they can integrate with OAuth2 providers for social login functionality. Additionally, Spring Security supports JWT (JSON Web Tokens) for stateless authentication in RESTful APIs. Spring Boot's auto-configuration for security simplifies the process of setting up security settings, allowing developers to quickly secure their applications without having to write extensive configuration code. Overall, Spring Boot's integration with Spring Security provides a powerful and flexible solution for securing applications and protecting sensitive data.",
+            "codeExample": "import org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;\nimport org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;\n\n@EnableWebSecurity\npublic class SecurityConfig extends WebSecurityConfigurerAdapter {\n    @Override\n    protected void configure(HttpSecurity http) throws Exception {\n        http.authorizeRequests()\n            .antMatchers(\"/public/**\").permitAll()\n            .anyRequest().authenticated()\n            .and()\n            .formLogin().loginPage(\"/login\").permitAll();\n    }\n}"
+        },
+        {
+            "id": 10,
+            "difficulty": "medium",
+            "question": "What is the role of Spring Boot CLI?",
+            "answer": "Spring Boot CLI (Command Line Interface) is a tool that allows developers to quickly create and run Spring Boot applications from the command line. It provides a simple and efficient way to develop Spring Boot applications without the need for an IDE, making it ideal for rapid prototyping and development.",
+            "explanation": "Spring Boot CLI is a command-line tool that enables developers to create and run Spring Boot applications with ease. It provides a simple syntax for defining application components and configurations, allowing developers to quickly set up and run their applications without the need for an integrated development environment (IDE). With Spring Boot CLI, developers can create new projects, add dependencies, and run applications using simple commands. This makes it particularly useful for rapid prototyping and development, as it allows developers to quickly iterate on their applications and see the results in real-time. Additionally, Spring Boot CLI supports Groovy as a scripting language, which can further simplify the development process by allowing developers to write concise and expressive code. Overall, Spring Boot CLI is a valuable tool for developers looking to quickly create and run Spring Boot applications from the command line.",
+            "codeExample": "$ spring init --dependencies=web my-spring-boot-app\n$ cd my-spring-boot-app\n$ spring run src/main/java/com/example/MyApplication.java"
+        },
+
+
+
+    ]; // Paste your JSON array here
+
+    const content=document.getElementById('content');
+    const index=document.getElementById('questionIndex');
+
+    function escapeHtml(text){
+        if(!text) return '';
+        return text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    data.forEach(item=>{
+        const li=document.createElement('li');
+        li.innerHTML='<a href="#q-'+item.id+'">'+item.question+'</a>';
+        index.appendChild(li);
+
+        const codeBlock=item.codeExample ?
+            '<div class="code-section"><strong>Code Example:</strong><pre><code>'+
+            escapeHtml(item.codeExample)+
+            '</code></pre></div>' : '';
+
+        const codeBlock2=item.codeExample2 ?
+            '<div class="code-section"><strong>Code Example 2:</strong><pre><code>'+
+            escapeHtml(item.codeExample2)+
+            '</code></pre></div>' : '';
+
+        const div=document.createElement('div');
+        div.className='card';
+        div.id='q-'+item.id;
+
+        div.innerHTML=' <div class="meta">ID: '+(item.id||'')+' | <span class="badge">'+(item.difficulty||'')+'</span></div> <div class="question">Q'+item.id+'. '+(item.question||'')+'</div> <div class="answer"><strong>Answer:</strong><br>'+(item.answer||'')+'</div> <div class="explanation"><strong>Explanation:</strong><br>'+(item.explanation||'')+'</div> '+codeBlock+' <div style="margin-top:10px"></div>'+codeBlock2+' <div style="margin-top:10px"><a href="#top">Back to Index</a></div>';
+
+        content.appendChild(div);
+    });
+</script>
+</body>
+</html>

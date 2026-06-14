@@ -1,0 +1,260 @@
+<!--
+  ~ /**
+  ~  Copyright (c) 2026 Wilson K Sam
+  ~
+  ~  SPDX-License-Identifier: MIT
+  ~
+  ~  Chapter : Chapter 6 - Class as the Basis of all Computations
+  ~  Purpose:
+  ~  Notes:
+  ~    -
+  ~  */
+  ~
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring Boot Beginner Classes</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            line-height: 1.5;
+        }
+
+        h1, h2 {
+            color: #222;
+        }
+
+        .class-page {
+            page-break-after: always;
+            margin-bottom: 40px;
+        }
+
+        .metadata {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        pre {
+            border: 1px solid #ccc;
+            padding: 15px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            font-family: Consolas, Monaco, monospace;
+            font-size: 13px;
+        }
+
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .toc li {
+            margin: 6px 0;
+        }
+
+        @media print {
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+
+<h1>Java Programs related to String Handling</h1>
+
+<div class="toc">
+    <h2>Table of Contents</h2>
+    <ul id="toc"></ul>
+</div>
+
+<hr>
+
+<div id="content"></div>
+
+<script>
+    /*
+    Paste your classes here.
+
+    Example:
+
+    const classes = [
+    {
+      packageName: "com.company.service",
+      className: "CustomerService",
+      description: "Handles customer operations",
+      sourceCode: `
+    @Service
+    public class CustomerService {
+        public String hello() {
+            return "Hello";
+        }
+    }
+    `
+    }
+    ];
+    */
+
+    const classes = [
+        {
+            packageName: "java.lang.String",
+            className: "DefaultConstructorExample",
+            description: "Default Constructor Provided by compiler",
+            sourceCode: `
+
+            `
+        },
+        {
+            packageName: "java.lang.String",
+            className: "DefaultConstructorExample",
+            description: "Default Constructor Provided by compiler",
+            sourceCode: `
+
+            `
+        },
+        {
+            packageName: "java.lang.String",
+            className: "DefaultConstructorExample",
+            description: "Default Constructor Provided by compiler",
+            sourceCode: `
+
+            `
+        },
+        {
+            packageName: "java.lang.String",
+            className: "DefaultConstructorExample",
+            description: "Default Constructor Provided by compiler",
+            sourceCode: `
+
+            `
+        },
+        {
+            packageName: "java.lang.String",
+            className: "DefaultConstructorExample",
+            description: "Default Constructor Provided by compiler",
+            sourceCode: `
+
+            `
+        },
+        {
+            packageName: "java.lang.String",
+            className: "DefaultConstructorExample",
+            description: "Default Constructor Provided by compiler",
+            sourceCode: `
+
+            `
+        },
+        {
+            packageName: "java.lang.String",
+            className: "DefaultConstructorExample",
+            description: "Default Constructor Provided by compiler",
+            sourceCode: `
+
+            `
+        },
+        {
+            packageName: "java.lang.String",
+            className: "DefaultConstructorExample",
+            description: "Default Constructor Provided by compiler",
+            sourceCode: `
+
+            `
+        },
+        {
+            packageName: "java.lang.String",
+            className: "DefaultConstructorExample",
+            description: "Default Constructor Provided by compiler",
+            sourceCode: `
+
+            `
+        },
+        {
+            packageName: "java.lang.String",
+            className: "DefaultConstructorExample",
+            description: "Default Constructor Provided by compiler",
+            sourceCode: `
+
+            `
+        },
+        {
+            packageName: "java.lang.String",
+            className: "DefaultConstructorExample",
+            description: "Default Constructor Provided by compiler",
+            sourceCode: `
+
+            `
+        },
+        {
+            packageName: "java.lang.String",
+            className: "DefaultConstructorExample",
+            description: "Default Constructor Provided by compiler",
+            sourceCode: `
+
+            `
+        },
+        {
+            packageName: "java.lang.String",
+            className: "DefaultConstructorExample",
+            description: "Default Constructor Provided by compiler",
+            sourceCode: `
+
+            `
+        },
+        {
+            packageName: "java.lang.String",
+            className: "DefaultConstructorExample",
+            description: "Default Constructor Provided by compiler",
+            sourceCode: `
+
+            `
+        }
+    ];
+
+    const toc = document.getElementById("toc");
+    const content = document.getElementById("content");
+
+    classes.forEach((cls, index) => {
+
+        const tocItem = document.createElement("li");
+        tocItem.innerHTML =
+            `<a href="#class-${index}">${cls.className}</a>`;
+        toc.appendChild(tocItem);
+
+        const page = document.createElement("div");
+        page.className = "class-page";
+        page.id = `class-${index}`;
+
+        page.innerHTML = `
+        <h2>${cls.className}</h2>
+
+        <div class="metadata">
+            <strong>Package:</strong> ${cls.packageName || ""}<br>
+            <strong>Description:</strong> ${cls.description || ""}
+        </div>
+
+        <pre><code>${escapeHtml(cls.sourceCode || "")}</code></pre>
+    `;
+
+        content.appendChild(page);
+    });
+
+    function escapeHtml(text) {
+        return text
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;");
+    }
+</script>
+
+</body>
+</html>
