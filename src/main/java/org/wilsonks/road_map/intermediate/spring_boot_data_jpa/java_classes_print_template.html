@@ -1,0 +1,194 @@
+<!--
+  ~ /**
+  ~  Copyright (c) 2026 Wilson K Sam
+  ~
+  ~  SPDX-License-Identifier: MIT
+  ~
+  ~  Chapter : Chapter 6 - Class as the Basis of all Computations
+  ~  Purpose:
+  ~  Notes:
+  ~    -
+  ~  */
+  ~
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring Boot Beginner Classes</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            line-height: 1.5;
+        }
+
+        h1, h2 {
+            color: #222;
+        }
+
+        .class-page {
+            page-break-after: always;
+            margin-bottom: 40px;
+        }
+
+        .metadata {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        pre {
+            border: 1px solid #ccc;
+            padding: 15px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            font-family: Consolas, Monaco, monospace;
+            font-size: 13px;
+        }
+
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .toc li {
+            margin: 6px 0;
+        }
+
+        @media print {
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+
+<h1>Code Snippet Related to Spring Data</h1>
+
+<div class="toc">
+    <h2>Table of Contents</h2>
+    <ul id="toc"></ul>
+</div>
+
+<hr>
+
+<div id="content"></div>
+
+<script>
+
+    const classes = [
+        {
+            packageName: "H2 Engine",
+            className: "H2 In-memory Setup",
+            description: "ddl-auto is a Hibernate configuration property that controls how your database schema (tables, columns, and constraints) is automatically created, updated, or validated based on your Java entity classes at application startup. Never use create, create-drop, or update in Production: A simple application restart with create will permanently wipe out your enterprise data. ",
+            sourceCode1: `//application.properties
+#Server Port: Your application runs locally on port 8080.
+server.port=8080
+
+#Database Target: The database is named test and runs completely in-memory. It wipes clean every time the application shuts down.
+spring.datasource.url=jdbc:h2:mem:test
+spring.datasource.driver-class-name=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+
+#Schema Management: The create-drop strategy creates your tables at startup and drops them when the application terminates.
+spring.jpa.hibernate.ddl-auto=create-drop
+
+#Web Interface Console: You can access the H2 Database Web Interface by running your app and opening http://localhost:8080/h2-console in your browser.
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console
+            `,
+            sourceCode2: `//pom.xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+<dependency>
+    <groupId>com.h2database</groupId>
+    <artifactId>h2</artifactId>
+</dependency>
+            `
+
+        },
+        {
+            packageName: "H2 Engine",
+            className: "H2 Local File Setup",
+            description: "ddl-auto is a Hibernate configuration property that controls how your database schema (tables, columns, and constraints) is automatically created, updated, or validated based on your Java entity classes at application startup. Never use create, create-drop, or update in Production: A simple application restart with create will permanently wipe out your enterprise data. ",
+            sourceCode1: `//application.properties
+server.port=8080
+
+# ഇൻ-മെമ്മറിക്ക് പകരം ലോക്കൽ ഫയൽ പാത്ത് നൽകുക (ഡാറ്റ സ്ഥിരമായി നിലനിൽക്കും)
+spring.datasource.url=jdbc:h2:file:./data/test
+spring.datasource.driver-class-name=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+
+# ഓരോ തവണയും ഡാറ്റ ഡിലീറ്റ് ആകാതിരിക്കാൻ ഇത് 'update' ആക്കുക
+spring.jpa.hibernate.ddl-auto=update
+
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console
+
+            `,
+            sourceCode2: `//pom.xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+<dependency>
+    <groupId>com.h2database</groupId>
+    <artifactId>h2</artifactId>
+</dependency>
+            `
+
+        }
+    ];
+
+    const toc = document.getElementById("toc");
+    const content = document.getElementById("content");
+
+    classes.forEach((cls, index) => {
+
+        const tocItem = document.createElement("li");
+        tocItem.innerHTML =
+            `<a href="#class-${index}">${cls.className}</a>`;
+        toc.appendChild(tocItem);
+
+        const page = document.createElement("div");
+        page.className = "class-page";
+        page.id = `class-${index}`;
+
+        page.innerHTML = `
+        <h2>${cls.className}</h2>
+
+        <div class="metadata">
+            <strong>Package:</strong> ${cls.packageName || ""}<br>
+            <strong>Description:</strong> ${cls.description || ""}
+        </div>
+
+        <pre><code>${escapeHtml(cls.sourceCode1 || "")}</code></pre>
+        <pre><code>${escapeHtml(cls.sourceCode2 || "")}</code></pre>
+        <pre><code>${escapeHtml(cls.sourceCode3 || "")}</code></pre>
+    `;
+
+        content.appendChild(page);
+    });
+
+    function escapeHtml(text) {
+        return text
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;");
+    }
+</script>
+
+</body>
+</html>
