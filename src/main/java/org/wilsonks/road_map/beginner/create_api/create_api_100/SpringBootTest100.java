@@ -1,4 +1,4 @@
-package org.wilsonks.road_map.beginner.create_api_100;
+package org.wilsonks.road_map.beginner.create_api.create_api_100;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

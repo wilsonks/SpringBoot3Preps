@@ -1,4 +1,4 @@
-package org.wilsonks.road_map.beginner.create_api_100.controller;
+package org.wilsonks.road_map.beginner.create_api.create_api_100.controller;
 
 
 import org.springframework.stereotype.Controller;
