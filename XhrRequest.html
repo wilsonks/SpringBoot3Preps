@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring MVC XHR Example</title>
+</head>
+<body>
+
+<h2>Spring MVC XHR Test</h2>
+<!-- റിക്വസ്റ്റ് അയക്കാൻ ഒരു ബട്ടൺ -->
+<button id="sendBtn1">Send Get 1</button>
+<button id="sendBtn2">Send Post</button>
+
+<script>
+    document.getElementById("sendBtn1").addEventListener("click", function() {
+
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://localhost:8080/api/wallets/1", true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    const jsonResponse = JSON.parse(xhr.responseText);
+                    console.log("Success:",  JSON.stringify(jsonResponse));
+                    alert("Response from server: " + JSON.stringify(jsonResponse));
+                } else {
+                    console.error("Error occurred:", xhr.status);
+                }
+            }
+        };
+
+        xhr.send();
+
+    });
+
+    document.getElementById("sendBtn1").addEventListener("click", function() {
+
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "/api/wallets/1", true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    const jsonResponse = JSON.parse(xhr.responseText);
+                    console.log("Success:", jsonResponse.message);
+                    alert("Response from server: " + jsonResponse.message);
+                } else {
+                    console.error("Error occurred:", xhr.status);
+                }
+            }
+        };
+
+        const data = JSON.stringify({ name: "Alex" });
+        xhr.send(data);
+
+    });
+</script>
+</body>
+</html>

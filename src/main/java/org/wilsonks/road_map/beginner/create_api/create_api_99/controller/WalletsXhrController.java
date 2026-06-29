@@ -1,16 +1,12 @@
 package org.wilsonks.road_map.beginner.create_api.create_api_99.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.wilsonks.road_map.beginner.create_api.create_api_99.dto.ApiError;
 import org.wilsonks.road_map.beginner.create_api.create_api_99.dto.WalletDto;
 import org.wilsonks.road_map.beginner.create_api.create_api_99.service.WalletService;
@@ -19,17 +15,20 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/wallets")
-public class WalletApiController {
+@CrossOrigin(origins = "*")
+@Slf4j
+public class WalletsXhrController {
 
     private final WalletService walletService;
 
-    public WalletApiController(@Qualifier("walletServiceImp2") WalletService walletService) {
+    public WalletsXhrController(@Qualifier("walletServiceImp2") WalletService walletService) {
         this.walletService = walletService;
     }
 
 
     @GetMapping(value = "/{userId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getWallet(@PathVariable String userId, HttpServletRequest request) {
+        log.info("Request being Handled {}", request);
         if(userId.isBlank()) {
             return ResponseEntity
                     .status(HttpStatus.BAD_REQUEST)
