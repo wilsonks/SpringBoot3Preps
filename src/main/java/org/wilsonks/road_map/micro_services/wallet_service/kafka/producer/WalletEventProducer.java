@@ -1,4 +1,4 @@
-package org.wilsonks.road_map.advanced.wallet_service.kafka.producer;
+package org.wilsonks.road_map.micro_services.wallet_service.kafka.producer;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.core.KafkaTemplate;

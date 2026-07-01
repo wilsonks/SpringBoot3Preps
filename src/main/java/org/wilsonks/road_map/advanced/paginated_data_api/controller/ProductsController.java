@@ -1,6 +1,5 @@
 package org.wilsonks.road_map.advanced.paginated_data_api.controller;
 
-import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;

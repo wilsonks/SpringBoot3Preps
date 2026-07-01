@@ -1,13 +1,13 @@
-package org.wilsonks.road_map.advanced.wallet_service.service;
+package org.wilsonks.road_map.micro_services.wallet_service.service;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.wilsonks.road_map.advanced.wallet_service.entities.TransactionType;
-import org.wilsonks.road_map.advanced.wallet_service.entities.Wallet;
-import org.wilsonks.road_map.advanced.wallet_service.entities.WalletTransaction;
-import org.wilsonks.road_map.advanced.wallet_service.repository.WalletRepository;
-import org.wilsonks.road_map.advanced.wallet_service.repository.WalletTransactionRepository;
+import org.wilsonks.road_map.micro_services.wallet_service.entities.TransactionType;
+import org.wilsonks.road_map.micro_services.wallet_service.entities.Wallet;
+import org.wilsonks.road_map.micro_services.wallet_service.entities.WalletTransaction;
+import org.wilsonks.road_map.micro_services.wallet_service.repository.WalletRepository;
+import org.wilsonks.road_map.micro_services.wallet_service.repository.WalletTransactionRepository;
 
 import java.math.BigDecimal;
 

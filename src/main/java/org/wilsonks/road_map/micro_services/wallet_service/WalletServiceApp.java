@@ -1,4 +1,4 @@
-package org.wilsonks.road_map.advanced.wallet_service;
+package org.wilsonks.road_map.micro_services.wallet_service;
 
 
 import lombok.extern.slf4j.Slf4j;
